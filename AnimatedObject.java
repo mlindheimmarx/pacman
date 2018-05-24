@@ -1,4 +1,7 @@
-public class AnimatedObject {
+public abstract class AnimatedObject {
+    /* fields */
+    private int x;
+    private int y;
 
     private char[/* y */][/* x */] world;
 
@@ -8,23 +11,20 @@ public class AnimatedObject {
     private int currentFrameNumber;
     private int[/* y */][/* x */] currentState;
     
+    /* constructor */
     public AnimatedObject(int[][][] states) {
         this.states = states;
         numFrames = states.length;
         currentState = states[0];
     }
 
-    public void nextFrame() {
-        if (currentFrameNumber != numFrames - 1) {
-            currentFrameNumber++;
-        }
-        else {
-            currentFrameNumber = 0;
-        }
-        currentState = states[currentFrameNumber];
-    }
+    /* abstract methods */
+    abstract public void nextFrame();
+    
+    abstract public void nextLocation();
 
-    public String[] blit(String[] world, int x, int y) {
+    /* methods */
+    public String[] blit(String[] world) {
         this.world = new char[world.length][world[0].length()];
         for (int i = 0; i < world.length; i++) {
             String worldString = world[i];
@@ -43,13 +43,5 @@ public class AnimatedObject {
         }
 
         return blittedWorld;
-    }
-
-    public void setStates(int[][][] states) {
-        this.states = states;
-    }
-
-    public void setNumFrames(int numFrames) {
-        this.numFrames = numFrames;
     }
 }
