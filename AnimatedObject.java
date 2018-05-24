@@ -1,15 +1,15 @@
 public abstract class AnimatedObject {
     /* fields */
-    private int x;
-    private int y;
+    protected int x;
+    protected int y;
 
     private char[/* y */][/* x */] world;
 
-    private int numFrames;
-    private int[/* state */][/* y */][/* x */] states;
+    protected int numFrames;
+    protected int[/* state */][/* y */][/* x */] states;
 
-    private int currentFrameNumber;
-    private int[/* y */][/* x */] currentState;
+    protected int currentFrameNumber;
+    protected int[/* y */][/* x */] currentState;
     
     /* constructor */
     public AnimatedObject(int[][][] states) {
