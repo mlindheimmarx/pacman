@@ -1,43 +1,47 @@
 import java.util.concurrent.TimeUnit;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.awt.*;
+import java.awt.image.*;
+import javax.swing.*;
 
 
 public class PacGame {
     static ArrayList<AnimatedObject> animatedObjects;
     
     public static void main(String[] args) {
+    	JFrame frame = new JFrame("GUI");
+    	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    	frame.setLocationRelativeTo(null);
+    	Window w = new Window(frame);
+    	BufferedImage canvas = new BufferedImage(600, 600, BufferedImage.TYPE_INT_ARGB);
+    	frame.add(new JLabel(new ImageIcon(canvas)));
+    	frame.pack();
+    	frame.setVisible(true);
+    	frame.setResizable(false);
+    	for (int i = 0; i < 600; i++)
+    		for (int j = 0; j < 600; j++)
+    			canvas.setRGB(i, j, Color.WHITE.getRGB());
+    	frame.pack();
+    	
         animatedObjects = new ArrayList<AnimatedObject>();
         Pac pac = new Pac();
-        Ghost blinky = new Ghost();
+        //Ghost blinky = new Ghost();
         animatedObjects.add(pac);
-        animatedObjects.add(blinky);
+        //animatedObjects.add(blinky);
         while (true) {
-        	Scanner keyboard = new Scanner(System.in);
-    		keyboard.useDelimiter("");
-    		String input = keyboard.next();
-    		if (input.equals("q")) {
-    			return;
-    		}
-    		else {
-    			pac.getNewVelocity(input.toCharArray()[0]);
-    		}
-        	String[] world = initWorld();
             for (AnimatedObject object : animatedObjects) {
                 object.getNewVelocity();
                 object.nextFrame();
-                object.update();
                 try {
-               		world = object.blit(world);
+                	canvas.setRGB(0, 0, Color.GREEN.getRGB());
+                	object.update();
+               		canvas = object.blit(canvas);
                 }
                 catch (Exception e){
-                	object.reverseUpdate();
                 	object.stop();
-               		world = object.blit(world);
+               		canvas = object.blit(canvas);
                 }
-            }
-            for (String worldString : world) {
-                System.out.println(worldString);
             }
             try {
                 TimeUnit.MILLISECONDS.sleep(250);
@@ -46,6 +50,7 @@ public class PacGame {
                 System.out.println("Cannot sleep, aborting...");
                 return;
             }
+    		frame.pack();
         }
     }
 
