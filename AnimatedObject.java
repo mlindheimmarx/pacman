@@ -6,12 +6,14 @@ public abstract class AnimatedObject {
     /* fields */
     protected int x;
     protected int y;
+
+    protected Color ghostColor;
     
 
     private BufferedImage world;
 
     protected int numFrames;
-    protected int[/* state */][/* y */][/* x */] states;
+    protected int[/* frame */][/* y */][/* x */] states;
 
     protected int currentFrameNumber;
     protected int[/* y */][/* x */] currentState;
@@ -19,10 +21,21 @@ public abstract class AnimatedObject {
     protected int[] velocity;
     
     /* constructor */
-    public AnimatedObject(int[][][] states) {
-    	this.states = states;
+    public AnimatedObject(String[][] states) {
+    	int[][][] intStates = new int[states.length][states[0].length][states[0][0].length()];
+        for (int i = 0; i < states.length; i++) {
+            for (int j = 0; j < states[0].length; j++) {
+                char[] charString = states[i][j].toCharArray();
+                int[] temp = new int[charString.length];
+                for (int k = 0; k < charString.length; k++) {
+                    temp[k] = Character.getNumericValue(charString[k]);
+                }
+                intStates[i][j] = temp;
+            }
+        }
+        this.states = intStates;
         numFrames = states.length;
-        currentState = states[0];
+        currentState = this.states[0];
         x = getStartX();
         y = getStartY();
         velocity = getStartVelocity();
@@ -40,18 +53,16 @@ public abstract class AnimatedObject {
     abstract public void getNewVelocity();
 
     /* methods */
-    public BufferedImage blit(BufferedImage world) {
-   	    Color[] colorList = new Color[] {Color.WHITE, Color.RED, Color.BLUE, Color.GREEN, Color.ORANGE};
-		this.world = world;
+    public void blit(BufferedImage world) {
+   	    Color[] colorList = new Color[] {Color.decode("#FFFF00"), Color.decode("#FF0000"), Color.BLUE, Color.GREEN, Color.ORANGE, Color.decode("#2121FF"), Color.decode("#E0DDFF"), ghostColor, Color.decode("#FAB9B0")};
 
         for (int i = y; i < y + currentState.length; i++) {
             for (int j = x; j < x + currentState[0].length; j++) {
             	int test = currentState[i - y][j - x];
-            	this.world.setRGB(i, j, colorList[test].getRGB());
+                if (test != 0)
+            	    HelperClass.writeBigPixel(world, j, i, colorList[test - 1].getRGB());
             }
         }
-
-        return this.world;
     }
     
     public void update() {
