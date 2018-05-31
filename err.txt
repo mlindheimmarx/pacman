@@ -1,0 +1,24 @@
+./Pac.java:18: error: illegal start of expression
+        states[0][0] = {0, 0, 0, 0, 0};
+                       ^
+./Pac.java:18: error: not a statement
+        states[0][0] = {0, 0, 0, 0, 0};
+                        ^
+./Pac.java:18: error: ';' expected
+        states[0][0] = {0, 0, 0, 0, 0};
+                         ^
+./Pac.java:19: error: invalid method declaration; return type required
+        setStates(states);
+        ^
+./Pac.java:19: error: <identifier> expected
+        setStates(states);
+                        ^
+./Pac.java:22: error: class, interface, or enum expected
+}
+^
+./Pac.java:19: error: cannot find symbol
+        setStates(states);
+                  ^
+  symbol:   class states
+  location: class Pac
+7 errors

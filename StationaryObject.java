@@ -26,8 +26,10 @@ public class StationaryObject {
                     temp[j] = 10;
                 else if (charString[j] == 'B')
                     temp[j] = 11;
-                else
+                else if (charString[j] == 'C')
                     temp[j] = 12;
+                else
+                    temp[j] = 13;
             }
             sprite[i] = temp;
         }
@@ -39,7 +41,7 @@ public class StationaryObject {
 
     /* methods */
     public void blit(BufferedImage world) {
-   	    Color[] colorList = new Color[] {Color.decode("#FF0000"), Color.decode("#DE9751"), Color.decode("#E0DDFF"), Color.decode("#00FF00"), Color.decode("#DF9851"), Color.decode("#FFB951"), Color.decode("#47B9AE"), Color.decode("#2121FF"), Color.decode("#FFFF00"), Color.decode("#47b8ff"), Color.decode("#47B9FF"), Color.decode("#FAB9B0")};
+   	    Color[] colorList = new Color[] {Color.decode("#FF0000"), Color.decode("#DE9751"), Color.decode("#E0DDFF"), Color.decode("#00FF00"), Color.decode("#DF9851"), Color.decode("#FFB951"), Color.decode("#47B9AE"), Color.decode("#2121FF"), Color.decode("#FFFF00"), Color.decode("#47b8ff"), Color.decode("#47B9FF"), Color.decode("#FAB9B0"), Color.decode("#2121DE")};
 
         for (int i = y; i < y + sprite.length; i++) {
             for (int j = x; j < x + sprite[0].length; j++) {
