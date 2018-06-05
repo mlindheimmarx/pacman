@@ -307,8 +307,17 @@ public class PacGame {
             }
         });
         while (true) {
-            if (frameNumber % 300 == 0) {
-                animatedObjects.add(new Ghost(Color.RED, 105, 109, space));
+            if (frameNumber % 180 == 0) {
+                boolean acceptable = false;
+                int spawnx = 0;
+                int spawny = 0;
+                while (!acceptable) {
+                    spawnx = (int) (Math.random() * space[0].length);
+                    spawny = (int) (Math.random() * space.length);
+                    if (space[spawny][spawnx] && Math.abs(spawnx - pac.getX()) > 15 && Math.abs(spawny - pac.getY()) > 15)
+                        acceptable = true;
+                }
+                animatedObjects.add(new Ghost(Color.RED, spawny, spawnx + 24, space));
             }
     	    for (int i = 0; i < 224; i++)
     		    for (int j = 0; j < 288; j++)
