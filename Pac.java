@@ -202,11 +202,19 @@ public class Pac extends AnimatedObject {
     }
     
     public int getStartX() {
-    	return 4;
+    	return 105;
     }
     
     public int getStartY() {
-    	return 28;
+    	return 205;
+    }
+
+    public int getX() {
+    	return x;
+    }
+    
+    public int getY() {
+    	return y;
     }
     
     public int[] getStartVelocity() {

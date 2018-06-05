@@ -6,10 +6,13 @@ public class Ghost extends AnimatedObject {
     /* fields */
     private int startX;
     private int startY;
+    private int pacx;
+    private int pacy;
+    private int numFrames;
     private boolean evenFrame;
     
     /* constructor */
-        public Ghost(Color c, int x, int y) {
+        public Ghost(Color c, int x, int y, boolean[][] availableSpace) {
         super(new String[][] {{"00000888800000",
                                "00088888888000",
                                "00888888888800",
@@ -120,13 +123,14 @@ public class Ghost extends AnimatedObject {
                                "88888888888888",
                                "88888888888888",
                                "88088800888088",
-                               "80008800880008"}});
+                               "80008800880008"}}, availableSpace);
         evenFrame = false;
         ghostColor = c;
         this.x = x;
         this.y = y;
         centerx = 6;
         centery = 6;
+        numFrames = 0;
     }
     
     /* methods */
@@ -155,9 +159,10 @@ public class Ghost extends AnimatedObject {
     }
     
     public void nextLocation() {
-    	
+    	x += velocity[0];
+        y += velocity[1];
     } 
-    
+
     public int getStartX() {
     	return startX;
     }
@@ -166,19 +171,37 @@ public class Ghost extends AnimatedObject {
     	return startY;
     }
     
+    public int getX() {
+    	return x;
+    }
+    
+    public int getY() {
+    	return y;
+    }
+    
     public int[] getStartVelocity() {
     	return new int[] {1, 0};
     }
     
     public void getNewVelocity() {
-    	if (velocity[0] == 1 && velocity[1] == 0)
-    		velocity = new int[] {0, 1};
-    	else if (velocity[0] == 0 && velocity[1] == 1)
-    		velocity = new int[] {-1, 0};
-    	else if (velocity[0] == -1 && velocity[1] == 0)
-    		velocity = new int[] {0, -1};
-    	else
-    		velocity = new int[] {1, 0};
+        if (numFrames == 0) {
+            int testVar = (int) (4 * Math.random());
+            numFrames = (int) (30 * Math.random()) + 1;
+            if (testVar == 0)
+                velocity = new int[] {1, 0};
+            if (testVar == 1)
+                velocity = new int[] {-1, 0};
+            if (testVar == 2)
+                velocity = new int[] {0, 1};
+            if (testVar == 3)
+                velocity = new int[] {0, -1};
+        }
+        numFrames--;
+    }
+
+    public void setPacLocation(int pacx, int pacy) {
+        this.pacx = pacx;
+        this.pacy = pacy;
     }
 }
 

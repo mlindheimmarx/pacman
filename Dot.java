@@ -8,4 +8,10 @@ public class Dot extends StationaryObject {
         super(new String[] {"CC",
                             "CC"}, x, y);
     }
+
+    /* methods */
+    public void testRemove(int pacx, int pacy) {
+        if (x - pacx <= 12 && x - pacx >= 0 && y - pacy <= 12 && y - pacy >= 0)
+            remove();
+    }
 }

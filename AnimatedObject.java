@@ -28,7 +28,27 @@ public abstract class AnimatedObject {
 
     protected boolean[][] availableSpace;
     
-    /* constructor */
+    /* constructors */
+    public AnimatedObject(String[][] states) {
+    	int[][][] intStates = new int[states.length][states[0].length][states[0][0].length()];
+        for (int i = 0; i < states.length; i++) {
+            for (int j = 0; j < states[0].length; j++) {
+                char[] charString = states[i][j].toCharArray();
+                int[] temp = new int[charString.length];
+                for (int k = 0; k < charString.length; k++) {
+                    temp[k] = Character.getNumericValue(charString[k]);
+                }
+                intStates[i][j] = temp;
+            }
+        }
+        this.states = intStates;
+        numFrames = states.length;
+        currentState = this.states[0];
+        x = getStartX();
+        y = getStartY();
+        velocity = getStartVelocity();
+    }
+
     public AnimatedObject(String[][] states, boolean[][] availableSpace) {
     	int[][][] intStates = new int[states.length][states[0].length][states[0][0].length()];
         for (int i = 0; i < states.length; i++) {

@@ -3,8 +3,10 @@ import java.awt.image.*;
 import javax.swing.*;
 
 public class PowerDot extends AnimatedObject {
+    int startx;
+    int starty;
     /* constructor */
-    public PowerDot() {
+    public PowerDot(int x, int y) {
         super(new String[][] {{"00999900",
                                "09999990",
                                "99999999",
@@ -22,6 +24,8 @@ public class PowerDot extends AnimatedObject {
                                "00000000",
                                "00000000",
                                "00000000"}});
+        this.x = x;
+        this.y = y;
         centerx = 3;
         centery = 3;
     }
@@ -38,11 +42,11 @@ public class PowerDot extends AnimatedObject {
     }
     
     public int getStartX() {
-    	return 175;
+    	return startx;
     }
     
     public int getStartY() {
-    	return 125;
+    	return starty;
     }
     
     public int[] getStartVelocity() {

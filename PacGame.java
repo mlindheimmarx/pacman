@@ -11,6 +11,7 @@ public class PacGame {
     static ArrayList<StationaryObject> stationaryObjects;
     
     public static void main(String[] args) {
+        int frameNumber = 0;
     	JFrame frame = new JFrame("GUI");
     	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     	frame.setLocationRelativeTo(null);
@@ -22,6 +23,267 @@ public class PacGame {
         boolean[][] space = availableSpace();
         animatedObjects = new ArrayList<AnimatedObject>();
         stationaryObjects = new ArrayList<StationaryObject>();
+        
+        stationaryObjects.add(new Dot(11, 35));
+        stationaryObjects.add(new Dot(19, 35));
+        stationaryObjects.add(new Dot(27, 35));
+        stationaryObjects.add(new Dot(35, 35));
+        stationaryObjects.add(new Dot(43, 35));
+        stationaryObjects.add(new Dot(51, 35));
+        stationaryObjects.add(new Dot(59, 35));
+        stationaryObjects.add(new Dot(67, 35));
+        stationaryObjects.add(new Dot(75, 35));
+        stationaryObjects.add(new Dot(83, 35));
+        stationaryObjects.add(new Dot(91, 35));
+        stationaryObjects.add(new Dot(99, 35));
+        stationaryObjects.add(new Dot(123, 35));
+        stationaryObjects.add(new Dot(131, 35));
+        stationaryObjects.add(new Dot(139, 35));
+        stationaryObjects.add(new Dot(147, 35));
+        stationaryObjects.add(new Dot(155, 35));
+        stationaryObjects.add(new Dot(163, 35));
+        stationaryObjects.add(new Dot(171, 35));
+        stationaryObjects.add(new Dot(179, 35));
+        stationaryObjects.add(new Dot(187, 35));
+        stationaryObjects.add(new Dot(195, 35));
+        stationaryObjects.add(new Dot(203, 35));
+        stationaryObjects.add(new Dot(211, 35));
+
+        stationaryObjects.add(new Dot(11, 67));
+        stationaryObjects.add(new Dot(19, 67));
+        stationaryObjects.add(new Dot(27, 67));
+        stationaryObjects.add(new Dot(35, 67));
+        stationaryObjects.add(new Dot(43, 67));
+        stationaryObjects.add(new Dot(51, 67));
+        stationaryObjects.add(new Dot(59, 67));
+        stationaryObjects.add(new Dot(67, 67));
+        stationaryObjects.add(new Dot(75, 67));
+        stationaryObjects.add(new Dot(83, 67));
+        stationaryObjects.add(new Dot(91, 67));
+        stationaryObjects.add(new Dot(99, 67));
+        stationaryObjects.add(new Dot(107, 67));
+        stationaryObjects.add(new Dot(115, 67));
+        stationaryObjects.add(new Dot(123, 67));
+        stationaryObjects.add(new Dot(131, 67));
+        stationaryObjects.add(new Dot(139, 67));
+        stationaryObjects.add(new Dot(147, 67));
+        stationaryObjects.add(new Dot(155, 67));
+        stationaryObjects.add(new Dot(163, 67));
+        stationaryObjects.add(new Dot(171, 67));
+        stationaryObjects.add(new Dot(179, 67));
+        stationaryObjects.add(new Dot(187, 67));
+        stationaryObjects.add(new Dot(195, 67));
+        stationaryObjects.add(new Dot(203, 67));
+        stationaryObjects.add(new Dot(211, 67));
+
+        stationaryObjects.add(new Dot(11, 91));
+        stationaryObjects.add(new Dot(19, 91));
+        stationaryObjects.add(new Dot(27, 91));
+        stationaryObjects.add(new Dot(35, 91));
+        stationaryObjects.add(new Dot(43, 91));
+        stationaryObjects.add(new Dot(51, 91));
+        stationaryObjects.add(new Dot(75, 91));
+        stationaryObjects.add(new Dot(83, 91));
+        stationaryObjects.add(new Dot(91, 91));
+        stationaryObjects.add(new Dot(99, 91));
+        stationaryObjects.add(new Dot(123, 91));
+        stationaryObjects.add(new Dot(131, 91));
+        stationaryObjects.add(new Dot(139, 91));
+        stationaryObjects.add(new Dot(147, 91));
+        stationaryObjects.add(new Dot(171, 91));
+        stationaryObjects.add(new Dot(179, 91));
+        stationaryObjects.add(new Dot(187, 91));
+        stationaryObjects.add(new Dot(195, 91));
+        stationaryObjects.add(new Dot(203, 91));
+        stationaryObjects.add(new Dot(211, 91));
+        
+        stationaryObjects.add(new Dot(11, 187));
+        stationaryObjects.add(new Dot(19, 187));
+        stationaryObjects.add(new Dot(27, 187));
+        stationaryObjects.add(new Dot(35, 187));
+        stationaryObjects.add(new Dot(43, 187));
+        stationaryObjects.add(new Dot(51, 187));
+        stationaryObjects.add(new Dot(59, 187));
+        stationaryObjects.add(new Dot(67, 187));
+        stationaryObjects.add(new Dot(75, 187));
+        stationaryObjects.add(new Dot(83, 187));
+        stationaryObjects.add(new Dot(91, 187));
+        stationaryObjects.add(new Dot(99, 187));
+        stationaryObjects.add(new Dot(123, 187));
+        stationaryObjects.add(new Dot(131, 187));
+        stationaryObjects.add(new Dot(139, 187));
+        stationaryObjects.add(new Dot(147, 187));
+        stationaryObjects.add(new Dot(155, 187));
+        stationaryObjects.add(new Dot(163, 187));
+        stationaryObjects.add(new Dot(171, 187));
+        stationaryObjects.add(new Dot(179, 187));
+        stationaryObjects.add(new Dot(187, 187));
+        stationaryObjects.add(new Dot(195, 187));
+        stationaryObjects.add(new Dot(203, 187));
+        stationaryObjects.add(new Dot(211, 187));
+        
+        stationaryObjects.add(new Dot(11, 211));
+        stationaryObjects.add(new Dot(19, 211));
+        stationaryObjects.add(new Dot(27, 211));
+        stationaryObjects.add(new Dot(51, 211));
+        stationaryObjects.add(new Dot(59, 211));
+        stationaryObjects.add(new Dot(67, 211));
+        stationaryObjects.add(new Dot(75, 211));
+        stationaryObjects.add(new Dot(83, 211));
+        stationaryObjects.add(new Dot(91, 211));
+        stationaryObjects.add(new Dot(99, 211));
+        stationaryObjects.add(new Dot(123, 211));
+        stationaryObjects.add(new Dot(131, 211));
+        stationaryObjects.add(new Dot(139, 211));
+        stationaryObjects.add(new Dot(147, 211));
+        stationaryObjects.add(new Dot(155, 211));
+        stationaryObjects.add(new Dot(163, 211));
+        stationaryObjects.add(new Dot(171, 211));
+        stationaryObjects.add(new Dot(195, 211));
+        stationaryObjects.add(new Dot(203, 211));
+        stationaryObjects.add(new Dot(211, 211));
+
+        stationaryObjects.add(new Dot(11, 235));
+        stationaryObjects.add(new Dot(19, 235));
+        stationaryObjects.add(new Dot(27, 235));
+        stationaryObjects.add(new Dot(35, 235));
+        stationaryObjects.add(new Dot(43, 235));
+        stationaryObjects.add(new Dot(51, 235));
+        stationaryObjects.add(new Dot(75, 235));
+        stationaryObjects.add(new Dot(83, 235));
+        stationaryObjects.add(new Dot(91, 235));
+        stationaryObjects.add(new Dot(99, 235));
+        stationaryObjects.add(new Dot(123, 235));
+        stationaryObjects.add(new Dot(131, 235));
+        stationaryObjects.add(new Dot(139, 235));
+        stationaryObjects.add(new Dot(147, 235));
+        stationaryObjects.add(new Dot(171, 235));
+        stationaryObjects.add(new Dot(179, 235));
+        stationaryObjects.add(new Dot(187, 235));
+        stationaryObjects.add(new Dot(195, 235));
+        stationaryObjects.add(new Dot(203, 235));
+        stationaryObjects.add(new Dot(211, 235));
+
+        stationaryObjects.add(new Dot(11, 259));
+        stationaryObjects.add(new Dot(19, 259));
+        stationaryObjects.add(new Dot(27, 259));
+        stationaryObjects.add(new Dot(35, 259));
+        stationaryObjects.add(new Dot(43, 259));
+        stationaryObjects.add(new Dot(51, 259));
+        stationaryObjects.add(new Dot(59, 259));
+        stationaryObjects.add(new Dot(67, 259));
+        stationaryObjects.add(new Dot(75, 259));
+        stationaryObjects.add(new Dot(83, 259));
+        stationaryObjects.add(new Dot(91, 259));
+        stationaryObjects.add(new Dot(99, 259));
+        stationaryObjects.add(new Dot(107, 259));
+        stationaryObjects.add(new Dot(115, 259));
+        stationaryObjects.add(new Dot(123, 259));
+        stationaryObjects.add(new Dot(131, 259));
+        stationaryObjects.add(new Dot(139, 259));
+        stationaryObjects.add(new Dot(147, 259));
+        stationaryObjects.add(new Dot(155, 259));
+        stationaryObjects.add(new Dot(163, 259));
+        stationaryObjects.add(new Dot(171, 259));
+        stationaryObjects.add(new Dot(179, 259));
+        stationaryObjects.add(new Dot(187, 259));
+        stationaryObjects.add(new Dot(195, 259));
+        stationaryObjects.add(new Dot(203, 259));
+        stationaryObjects.add(new Dot(211, 259));
+
+        stationaryObjects.add(new Dot(11, 43));
+        stationaryObjects.add(new Dot(11, 51));
+        stationaryObjects.add(new Dot(11, 59));
+        stationaryObjects.add(new Dot(11, 75));
+        stationaryObjects.add(new Dot(11, 83));
+        stationaryObjects.add(new Dot(11, 195));
+        stationaryObjects.add(new Dot(11, 203));
+        stationaryObjects.add(new Dot(11, 243));
+        stationaryObjects.add(new Dot(11, 251));
+
+        stationaryObjects.add(new Dot(27, 219));
+        stationaryObjects.add(new Dot(27, 227));
+
+        stationaryObjects.add(new Dot(51, 43));
+        stationaryObjects.add(new Dot(51, 51));
+        stationaryObjects.add(new Dot(51, 59));
+        stationaryObjects.add(new Dot(51, 75));
+        stationaryObjects.add(new Dot(51, 83));
+        stationaryObjects.add(new Dot(51, 99));
+        stationaryObjects.add(new Dot(51, 107));
+        stationaryObjects.add(new Dot(51, 115));
+        stationaryObjects.add(new Dot(51, 123));
+        stationaryObjects.add(new Dot(51, 131));
+        stationaryObjects.add(new Dot(51, 139));
+        stationaryObjects.add(new Dot(51, 147));
+        stationaryObjects.add(new Dot(51, 155));
+        stationaryObjects.add(new Dot(51, 163));
+        stationaryObjects.add(new Dot(51, 171));
+        stationaryObjects.add(new Dot(51, 179));
+        stationaryObjects.add(new Dot(51, 195));
+        stationaryObjects.add(new Dot(51, 203));
+        stationaryObjects.add(new Dot(51, 219));
+        stationaryObjects.add(new Dot(51, 227));
+
+        stationaryObjects.add(new Dot(75, 75));
+        stationaryObjects.add(new Dot(75, 83));
+        stationaryObjects.add(new Dot(75, 219));
+        stationaryObjects.add(new Dot(75, 227));
+
+        stationaryObjects.add(new Dot(99, 43));
+        stationaryObjects.add(new Dot(99, 51));
+        stationaryObjects.add(new Dot(99, 59));
+        stationaryObjects.add(new Dot(99, 195));
+        stationaryObjects.add(new Dot(99, 203));
+        stationaryObjects.add(new Dot(99, 243));
+        stationaryObjects.add(new Dot(99, 251));
+
+        stationaryObjects.add(new Dot(123, 43));
+        stationaryObjects.add(new Dot(123, 51));
+        stationaryObjects.add(new Dot(123, 59));
+        stationaryObjects.add(new Dot(123, 195));
+        stationaryObjects.add(new Dot(123, 203));
+        stationaryObjects.add(new Dot(123, 243));
+        stationaryObjects.add(new Dot(123, 251));
+
+        stationaryObjects.add(new Dot(147, 75));
+        stationaryObjects.add(new Dot(147, 83));
+        stationaryObjects.add(new Dot(147, 219));
+        stationaryObjects.add(new Dot(147, 227));
+
+        stationaryObjects.add(new Dot(171, 43));
+        stationaryObjects.add(new Dot(171, 51));
+        stationaryObjects.add(new Dot(171, 59));
+        stationaryObjects.add(new Dot(171, 75));
+        stationaryObjects.add(new Dot(171, 83));
+        stationaryObjects.add(new Dot(171, 99));
+        stationaryObjects.add(new Dot(171, 107));
+        stationaryObjects.add(new Dot(171, 115));
+        stationaryObjects.add(new Dot(171, 123));
+        stationaryObjects.add(new Dot(171, 131));
+        stationaryObjects.add(new Dot(171, 139));
+        stationaryObjects.add(new Dot(171, 147));
+        stationaryObjects.add(new Dot(171, 155));
+        stationaryObjects.add(new Dot(171, 163));
+        stationaryObjects.add(new Dot(171, 171));
+        stationaryObjects.add(new Dot(171, 179));
+        stationaryObjects.add(new Dot(171, 195));
+        stationaryObjects.add(new Dot(171, 203));
+        stationaryObjects.add(new Dot(171, 219));
+        stationaryObjects.add(new Dot(171, 227));
+
+        stationaryObjects.add(new Dot(195, 219));
+        stationaryObjects.add(new Dot(195, 227));
+
+        stationaryObjects.add(new Dot(211, 43));
+        stationaryObjects.add(new Dot(211, 51));
+        stationaryObjects.add(new Dot(211, 59));
+        stationaryObjects.add(new Dot(211, 75));
+        stationaryObjects.add(new Dot(211, 83));
+        stationaryObjects.add(new Dot(211, 195));
+        stationaryObjects.add(new Dot(211, 203));
+        stationaryObjects.add(new Dot(211, 243));
+        stationaryObjects.add(new Dot(211, 251));
 
         final Pac pac = new Pac(space);
 
@@ -45,14 +307,25 @@ public class PacGame {
             }
         });
         while (true) {
+            if (frameNumber % 300 == 0) {
+                animatedObjects.add(new Ghost(Color.RED, 105, 109, space));
+            }
     	    for (int i = 0; i < 224; i++)
     		    for (int j = 0; j < 288; j++)
     			    HelperClass.writeBigPixel(canvas, i, j, Color.BLACK.getRGB());
             makeMaze(canvas);
             for (StationaryObject object : stationaryObjects) {
                 object.blit(canvas);
+                if (object instanceof Dot) {
+                    ((Dot) object).testRemove(pac.getX(), pac.getY());
+                }
             }
             for (AnimatedObject object : animatedObjects) {
+                if (object instanceof Ghost) {
+                    ((Ghost) object).setPacLocation(pac.getX(), pac.getY());
+                    if (Math.abs(((Ghost) object).getX() - pac.getX()) <= 6 && Math.abs(((Ghost) object).getY() - pac.getY()) <= 6)
+                        return;
+                }
                 object.getNewVelocity();
                 try {
                     object.nextFrame();
@@ -73,6 +346,7 @@ public class PacGame {
                 System.out.println("Cannot sleep, aborting...");
                 return;
             }
+            frameNumber++;
         }
     }
 
@@ -139,15 +413,8 @@ public class PacGame {
     	wallElements.add(new MazeThickCornerUpRight(40, 100));
     	wallElements.add(new MazeThinWallVerticalMedium(40, 104));
     	wallElements.add(new MazeThinWallVerticalMedium(40, 116));
-    	wallElements.add(new MazeThickCornerDownRight(40, 128));
-    	wallElements.add(new MazeThinWallHorizontal(0, 128));
-    	wallElements.add(new MazeThinWallHorizontal(16, 128));
-    	wallElements.add(new MazeThinWallHorizontal(24, 128));
-    	
-    	wallElements.add(new MazeThinWallHorizontal(0, 148));
-    	wallElements.add(new MazeThinWallHorizontal(16, 148));
-    	wallElements.add(new MazeThinWallHorizontal(24, 148));
-    	wallElements.add(new MazeThickCornerUpRight(40, 148));
+    	wallElements.add(new MazeThinWallVerticalMedium(40, 128));
+    	wallElements.add(new MazeThinWallVerticalMedium(40, 140));
     	wallElements.add(new MazeThinWallVerticalMedium(40, 152));
     	wallElements.add(new MazeThinWallVerticalMedium(40, 164));
     	wallElements.add(new MazeThickCornerDownRight(40, 176));
@@ -204,15 +471,8 @@ public class PacGame {
     	wallElements.add(new MazeThickCornerUpLeft(180, 100));
     	wallElements.add(new MazeThinWallVerticalMedium(180, 104));
     	wallElements.add(new MazeThinWallVerticalMedium(180, 116));
-    	wallElements.add(new MazeThickCornerDownLeft(180, 128));
-    	wallElements.add(new MazeThinWallHorizontal(208, 128));
-    	wallElements.add(new MazeThinWallHorizontal(200, 128));
-    	wallElements.add(new MazeThinWallHorizontal(184, 128));
-    	    	
-    	wallElements.add(new MazeThinWallHorizontal(208, 148));
-    	wallElements.add(new MazeThinWallHorizontal(200, 148));
-    	wallElements.add(new MazeThinWallHorizontal(184, 148));
-    	wallElements.add(new MazeThickCornerUpLeft(180, 148));
+    	wallElements.add(new MazeThinWallVerticalMedium(180, 128));
+    	wallElements.add(new MazeThinWallVerticalMedium(180, 140));
     	wallElements.add(new MazeThinWallVerticalMedium(180, 152));
     	wallElements.add(new MazeThinWallVerticalMedium(180, 164));
     	wallElements.add(new MazeThickCornerDownLeft(180, 176));
@@ -593,8 +853,8 @@ public class PacGame {
             for (int j = 0; j < 248; j++)
                 space[i][j] = false;
         space = HelperClass.fill(space, 4, 4, 95, 7);
-        space = HelperClass.fill(space, 4, 8, 8, 63);
-        space = HelperClass.fill(space, 44, 8, 48, 207);
+        space = HelperClass.fill(space, 4, 8, 7, 63);
+        space = HelperClass.fill(space, 44, 8, 47, 207);
         space = HelperClass.fill(space, 4, 36, 208, 39);
         space = HelperClass.fill(space, 4, 60, 43, 63);
         space = HelperClass.fill(space, 92, 8, 95, 35);
