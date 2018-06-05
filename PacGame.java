@@ -19,10 +19,11 @@ public class PacGame {
     	frame.setVisible(true);
     	frame.setResizable(false);
     	
+        boolean[][] space = availableSpace();
         animatedObjects = new ArrayList<AnimatedObject>();
         stationaryObjects = new ArrayList<StationaryObject>();
 
-        final Pac pac = new Pac();
+        final Pac pac = new Pac(space);
 
         animatedObjects.add(pac);
 
@@ -53,19 +54,20 @@ public class PacGame {
             }
             for (AnimatedObject object : animatedObjects) {
                 object.getNewVelocity();
-                object.nextFrame();
-                object.update();
                 try {
+                    object.nextFrame();
+                    object.update();
                		object.blit(canvas);
                 }
                 catch (Exception e){
-                	object.stop();
+                    object.antiUpdate();
+                    object.stop();
                		object.blit(canvas);
                 }
             }
             temp.setIcon(new ImageIcon(canvas));
             try {
-                TimeUnit.MILLISECONDS.sleep(100);
+                TimeUnit.MILLISECONDS.sleep(17);
             }
             catch(InterruptedException e) {
                 System.out.println("Cannot sleep, aborting...");
@@ -106,13 +108,13 @@ public class PacGame {
     	wallElements.add(new MazeThickCornerUpRight(105, 27));
     	wallElements.add(new MazeWallVertical(108, 29));
     	wallElements.add(new MazeWallVertical(108, 39));
-    	wallElements.add(new MazeWallVertical(108, 44));
+    	wallElements.add(new MazeWallVertical(108, 46));
     	wallElements.add(new MazeThickCornerUpLeft(115, 27));
     	wallElements.add(new MazeWallVertical(115, 29));
     	wallElements.add(new MazeWallVertical(115, 39));
-    	wallElements.add(new MazeWallVertical(115, 44));
-    	wallElements.add(new MazeThickCornerDownLeft(108, 54));
-    	wallElements.add(new MazeThickCornerDownRight(112, 54));
+    	wallElements.add(new MazeWallVertical(115, 46));
+    	wallElements.add(new MazeThickCornerDownLeft(108, 56));
+    	wallElements.add(new MazeThickCornerDownRight(112, 56));
     	
     	wallElements.add(new MazeThinCornerUpRight(219, 24));
     	wallElements.add(new MazeThinWallHorizontal(203, 24));
@@ -583,5 +585,43 @@ public class PacGame {
     	for (StationaryObject object : wallElements) {
                 object.blit(canvas);
        	}
+    }
+    
+    public static boolean[][] availableSpace() {
+        boolean[][] space = new boolean[224][248];
+        for (int i = 0; i < 224; i++)
+            for (int j = 0; j < 248; j++)
+                space[i][j] = false;
+        space = HelperClass.fill(space, 4, 4, 95, 7);
+        space = HelperClass.fill(space, 4, 8, 8, 63);
+        space = HelperClass.fill(space, 44, 8, 48, 207);
+        space = HelperClass.fill(space, 4, 36, 208, 39);
+        space = HelperClass.fill(space, 4, 60, 43, 63);
+        space = HelperClass.fill(space, 92, 8, 95, 35);
+        space = HelperClass.fill(space, 68, 40, 71, 63);
+        space = HelperClass.fill(space, 72, 60, 95, 63);
+        space = HelperClass.fill(space, 92, 64, 95, 83);
+        space = HelperClass.fill(space, 68, 84, 143, 87);
+        space = HelperClass.fill(space, 68, 88, 71, 155);
+        space = HelperClass.fill(space, 72, 132, 139, 135);
+        space = HelperClass.fill(space, 140, 88, 143, 155);
+        space = HelperClass.fill(space, 144, 108, 163, 111);
+        space = HelperClass.fill(space, 48, 108, 67, 111);
+        space = HelperClass.fill(space, 4, 156, 95, 159);
+        space = HelperClass.fill(space, 4, 160, 7, 183);
+        space = HelperClass.fill(space, 8, 180, 23, 183);
+        space = HelperClass.fill(space, 20, 184, 23, 203);
+        space = HelperClass.fill(space, 4, 204, 47, 207);
+        space = HelperClass.fill(space, 4, 208, 7, 227);
+        space = HelperClass.fill(space, 4, 228, 207, 231);
+        space = HelperClass.fill(space, 48, 180, 163, 183);
+        space = HelperClass.fill(space, 92, 156, 95, 179);
+        space = HelperClass.fill(space, 68, 184, 71, 207);
+        space = HelperClass.fill(space, 72, 204, 91, 207);
+        space = HelperClass.fill(space, 92, 204, 95, 227);
+        for (int i = 105; i < 212; i++)
+            for (int j = 0; j < 248; j++)
+                space[i][j] = space[211-i][j];
+        return space;
     }
 }

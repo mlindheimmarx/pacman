@@ -6,7 +6,7 @@ public class Pac extends AnimatedObject {
     /* fields */
     private boolean closing;
     /* constructor */
-    public Pac() {
+    public Pac(boolean[][] space) {
         super(new String[][] {{"0000111110000",
                                "0011111111100",
                                "0111111111110",
@@ -131,8 +131,10 @@ public class Pac extends AnimatedObject {
                                "0111111111110",
                                "0111111111110",
                                "0011111111100",
-                               "0000111110000"}});
+                               "0000111110000"}}, space);
         closing = false;
+        centerx = 6;
+        centery = 6;
     }
     
     /* methods */
@@ -200,11 +202,11 @@ public class Pac extends AnimatedObject {
     }
     
     public int getStartX() {
-    	return 100;
+    	return 4;
     }
     
     public int getStartY() {
-    	return 100;
+    	return 28;
     }
     
     public int[] getStartVelocity() {

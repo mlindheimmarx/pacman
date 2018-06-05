@@ -22,6 +22,8 @@ public class PowerDot extends AnimatedObject {
                                "00000000",
                                "00000000",
                                "00000000"}});
+        centerx = 3;
+        centery = 3;
     }
     
     /* methods */

@@ -125,6 +125,8 @@ public class Ghost extends AnimatedObject {
         ghostColor = c;
         this.x = x;
         this.y = y;
+        centerx = 6;
+        centery = 6;
     }
     
     /* methods */
