@@ -5,6 +5,7 @@ import javax.swing.*;
 public class Pac extends AnimatedObject {
     /* fields */
     private boolean closing;
+    public int score;
     /* constructor */
     public Pac(boolean[][] space) {
         super(new String[][] {{"0000111110000",
@@ -135,6 +136,7 @@ public class Pac extends AnimatedObject {
         closing = false;
         centerx = 6;
         centery = 6;
+        score = 0;
     }
     
     /* methods */

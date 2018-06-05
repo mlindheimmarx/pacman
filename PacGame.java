@@ -317,14 +317,16 @@ public class PacGame {
             for (StationaryObject object : stationaryObjects) {
                 object.blit(canvas);
                 if (object instanceof Dot) {
-                    ((Dot) object).testRemove(pac.getX(), pac.getY());
+                    ((Dot) object).testRemove(pac.getX(), pac.getY(), pac);
                 }
             }
             for (AnimatedObject object : animatedObjects) {
                 if (object instanceof Ghost) {
                     ((Ghost) object).setPacLocation(pac.getX(), pac.getY());
-                    if (Math.abs(((Ghost) object).getX() - pac.getX()) <= 6 && Math.abs(((Ghost) object).getY() - pac.getY()) <= 6)
+                    if (Math.abs(((Ghost) object).getX() - pac.getX()) <= 6 && Math.abs(((Ghost) object).getY() - pac.getY()) <= 6) {
+                        System.out.println(pac.score + "");
                         return;
+                    }
                 }
                 object.getNewVelocity();
                 try {

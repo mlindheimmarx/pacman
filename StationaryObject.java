@@ -56,7 +56,9 @@ public class StationaryObject {
         }
     }
 
-    public void remove() {
+    public void remove(Pac pac) {
+        if (stopRendering == false)
+            pac.score += 100;
         stopRendering = true;
     }
 }
